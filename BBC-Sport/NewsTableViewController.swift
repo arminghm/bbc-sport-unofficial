@@ -17,7 +17,7 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 0...10 {
-            news.append(NewsModel(title: "title \(i)", description: "description \(i)", imageUrl: "github", url: "https://google.com"))
+            news.append(NewsModel(title: "title \(i)", description: "description \(i)", imageUrl: "github", url: "https://www.google.de/search?q=test"))
         }
     }
 
@@ -42,6 +42,10 @@ class NewsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showNewsDetail", sender: self)
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
@@ -50,6 +54,8 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newsDetailViewController = segue.destination as! NewsDetailViewController
+        newsDetailViewController.newsUrl = news[(tableView.indexPathForSelectedRow?.row)!].url
     }
 
 }

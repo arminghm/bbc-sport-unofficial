@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="92J-ZX-qIm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GTp-ay-c2Q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News Table View Controller-->
+        <!--BBC Sport-->
         <scene sceneID="Chh-jC-LGB">
             <objects>
                 <tableViewController id="92J-ZX-qIm" customClass="NewsTableViewController" customModule="BBC_Sport" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,10 +23,67 @@
                             <outlet property="delegate" destination="92J-ZX-qIm" id="MAf-2o-UeO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="BBC Sport" id="Fh6-S9-eyN"/>
+                    <connections>
+                        <segue destination="dsA-cN-Ygf" kind="show" identifier="showNewsDetail" id="6SM-UE-z74"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGj-1b-U3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="152"/>
+            <point key="canvasLocation" x="1047.2" y="151.57421289355324"/>
+        </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="EH9-EZ-pDR">
+            <objects>
+                <viewController id="dsA-cN-Ygf" customClass="NewsDetailViewController" customModule="BBC_Sport" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0aG-4L-tTP"/>
+                        <viewControllerLayoutGuide type="bottom" id="NdK-Ln-zOC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PQD-2N-Ohf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CKt-Kv-vAG">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CKt-Kv-vAG" firstAttribute="top" secondItem="0aG-4L-tTP" secondAttribute="bottom" constant="-64" id="8Mg-es-qz2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CKt-Kv-vAG" secondAttribute="trailing" constant="-20" id="N47-72-bmf"/>
+                            <constraint firstItem="NdK-Ln-zOC" firstAttribute="top" secondItem="CKt-Kv-vAG" secondAttribute="bottom" id="jVe-Os-Ssu"/>
+                            <constraint firstItem="CKt-Kv-vAG" firstAttribute="leading" secondItem="PQD-2N-Ohf" secondAttribute="leadingMargin" constant="-20" id="lu2-CP-666"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="CKt-Kv-vAG" id="z6u-cp-zQA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oea-og-Wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949.5999999999999" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xYE-hB-d8f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GTp-ay-c2Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3i-N0-Cqy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="1" green="0.87450980392156863" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="92J-ZX-qIm" kind="relationship" relationship="rootViewController" id="xzA-aS-Y7r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZX-rr-2mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="151.57421289355324"/>
         </scene>
     </scenes>
 </document>
