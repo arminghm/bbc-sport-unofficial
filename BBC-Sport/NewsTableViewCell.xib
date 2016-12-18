@@ -17,28 +17,28 @@
             <rect key="frame" x="0.0" y="0.0" width="426" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="426" height="144"/>
+                <rect key="frame" x="0.0" y="0.0" width="426" height="144.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opm-2t-ihg">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opm-2t-ihg">
                         <rect key="frame" x="8" y="10" width="125" height="125"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="125" id="cXr-re-X0B"/>
                             <constraint firstAttribute="width" secondItem="opm-2t-ihg" secondAttribute="height" multiplier="1:1" id="pb9-oc-zI8"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIE-tD-4sS">
-                        <rect key="frame" x="148" y="10" width="270" height="23.5"/>
-                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIE-tD-4sS">
+                        <rect key="frame" x="148" y="10" width="260" height="20"/>
+                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghR-Ez-F6D">
-                        <rect key="frame" x="148" y="41.5" width="270" height="20"/>
+                        <rect key="frame" x="148" y="38" width="260" height="17.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="rgj-ld-BOd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                         <color key="textColor" white="0.419921875" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,12 +48,13 @@
                     <constraint firstItem="YIE-tD-4sS" firstAttribute="leading" secondItem="opm-2t-ihg" secondAttribute="trailing" constant="15" id="Agv-Xx-hFa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="opm-2t-ihg" secondAttribute="bottom" constant="1.5" id="B3F-Nb-8j8"/>
                     <constraint firstItem="ghR-Ez-F6D" firstAttribute="leading" secondItem="opm-2t-ihg" secondAttribute="trailing" constant="15" id="IEJ-5m-uKm"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ghR-Ez-F6D" secondAttribute="trailing" id="YOQ-0Q-OwO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ghR-Ez-F6D" secondAttribute="trailing" constant="10" id="YOQ-0Q-OwO"/>
                     <constraint firstItem="opm-2t-ihg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="YQo-Ny-icd"/>
                     <constraint firstItem="YIE-tD-4sS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="f97-96-Ojw"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="YIE-tD-4sS" secondAttribute="trailing" id="hBZ-3Q-cDY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YIE-tD-4sS" secondAttribute="trailing" constant="10" id="hBZ-3Q-cDY"/>
                     <constraint firstItem="opm-2t-ihg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rlx-iy-34V"/>
                     <constraint firstAttribute="leadingMargin" secondItem="opm-2t-ihg" secondAttribute="leading" id="uO7-E2-6HR"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ghR-Ez-F6D" secondAttribute="bottom" constant="5" id="xLc-xr-H7B"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

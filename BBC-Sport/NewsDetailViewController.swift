@@ -10,11 +10,11 @@ import UIKit
 
 class NewsDetailViewController: UIViewController {
 
-    var newsUrl: String = ""
+    var newsUrl: String = "https://www.google.com"
     @IBOutlet weak var webview: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webview.loadRequest(URLRequest(url: URL(string: self.newsUrl)!))
+        webview.loadRequest(URLRequest(url: URL(string: newsUrl)!))
     }
 }

@@ -6,16 +6,24 @@
 //  Copyright © 2016 Armin Ghoreishi. All rights reserved.
 //
 
-class NewsModel {
-    var title: String = ""
-    var description: String = ""
-    var imageUrl: String = ""
-    var url: String = ""
-    
-    init(title: String, description: String, imageUrl: String, url: String) {
-        self.title = title
-        self.description = description
-        self.imageUrl = imageUrl
-        self.url = url
+import Argo
+import Curry
+import Runes
+
+struct NewsModel {
+    let title: String
+    let description: String
+    var imageUrl: String
+    let url: String
+
+}
+
+extension NewsModel: Decodable {
+    static func decode(_ json: JSON) -> Decoded<NewsModel> {
+        return curry(NewsModel.init)
+            <^> json <| "title"
+            <*> json <| "description"
+            <*> json <| "urlToImage"
+            <*> json <| "url"
     }
 }

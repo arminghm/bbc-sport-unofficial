@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Argo
+import Alamofire
+import SDWebImage
 
 var rowHeight: CGFloat = 146
 class NewsTableViewController: UITableViewController {
@@ -16,8 +18,16 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0...10 {
-            news.append(NewsModel(title: "title \(i)", description: "description \(i)", imageUrl: "github", url: "https://www.google.de/search?q=test"))
+        getNews()
+    }
+    
+    func getNews() {
+        Alamofire.request("https://newsapi.org/v1/articles?source=bbc-sport&apiKey=1930f196d941492c9ed93a05d8f7da8b").responseJSON{ response in
+            if let json = response.result.value {
+                let newsResponse: NewsResponse? = decode(json)
+                self.news = (newsResponse?.articles)!
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -34,8 +44,8 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("NewsTableViewCell", owner: self, options: nil)!.first as!NewsTableViewCell
-
-        cell.imageViewNews.image = UIImage(named: news[indexPath.row].imageUrl)
+        
+        cell.imageViewNews.sd_setImage(with: URL(string: news[indexPath.row].imageUrl) ,  placeholderImage: UIImage(named: "placeholder"))
         cell.labelNewsTitle.text = news[indexPath.row].title
         cell.labelNewsDescription.text = news[indexPath.row].description
 
