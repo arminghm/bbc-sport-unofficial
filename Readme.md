@@ -10,5 +10,4 @@ This app brings you the top-ten articles of bbc-sport.
 3. [SDWebImage](https://github.com/rs/SDWebImage)
 
 ## API :
-
-...API provided by [NewsApi](http://newsapi.org).
+API provided by [NewsApi](http://newsapi.org).
